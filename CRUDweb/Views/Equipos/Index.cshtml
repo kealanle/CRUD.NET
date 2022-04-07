@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Equipo>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+
+    <div class="row pt-4">
+       <div class="col-6">
+           <h2 class="text-primary"> Lista de Equipos </h2>
+       </div>
+       <div class="col-6 text-end">
+           <a asp-controller="Equipos" asp-action="Create" class="btn-primary" >
+               <i class="bi bi-plus-square"></i> &nbsp; Añadir Nuevo Equipo
+           </a>
+       </div>
+    </div>
+    <br /><br />
+
+
+
+<table class="table table-bordered  table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                ID Equipo
+            </th>
+            <th>
+                Tipo
+            </th>
+            <th>
+                Ultima Inspeccion
+            </th>
+            <th>
+                ID Planta
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr class="table-primary">
+                <td width="50%">
+                    @obj.Id
+                </td>
+                 <td width="50%">
+                    @obj.Tipo
+                </td>
+                 <td width="50%">
+                    @obj.UltimaInspeccion
+                </td>
+                 <td width="50%">
+                    @obj.PlantaID
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+
